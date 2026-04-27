@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 40px;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Input Section */
+input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    width: 200px;
+}
+
+input:focus {
+    border-color: #4CAF50;
+}
+
+/* Button */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* User List */
+ul {
+    margin-top: 30px;
+    padding: 0;
+    list-style: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Card Style */
+li {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete Button */
+li button {
+    background: #ff4d4d;
+}
+
+li button:hover {
+    background: #e60000;
+}

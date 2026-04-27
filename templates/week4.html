@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3 - API</title>
+    <link rel="stylesheet" href="/static/style3.css">
+</head>
+<body>
+
+<h2>Week 3 - User API</h2>
+
+<input id="name" placeholder="Name">
+<input id="email" placeholder="Email">
+<button onclick="addUser()">Add User</button>
+
+<ul id="list"></ul>
+
+<script>
+function loadUsers() {
+    fetch('/api/users')
+    .then(res => res.json())
+    .then(data => {
+        let list = document.getElementById("list");
+        list.innerHTML = "";
+        data.forEach(u => {
+            list.innerHTML += `
+            <li>
+                ${u.name} (${u.email})
+                <button onclick="deleteUser(${u.id})">Delete</button>
+            </li>`;
+        });
+    });
+}
+
+function addUser() {
+    fetch('/api/users', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value
+        })
+    }).then(() => loadUsers());
+}
+
+function deleteUser(id) {
+    fetch('/api/users/' + id, { method: 'DELETE' })
+    .then(() => loadUsers());
+}
+
+loadUsers();
+</script>
+
+</body>
+</html>
